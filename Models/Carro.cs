@@ -17,8 +17,13 @@ public class Carro
     public int QuantidadeDisponivel { get; set; }   
     public DateTime AnoLancamento { get; set; }
 
-  
-    public Guid CategoriaId { get; set; }   
+    [Required]
+    public Guid CategoriaId { get; set; }
+
+    public Guid VendedorId { get; set; }    
+
+
     public CategoriaCarro? Categoria { get; set; }
+    public Vendedor? Vendedor { get; set; }
 
 }

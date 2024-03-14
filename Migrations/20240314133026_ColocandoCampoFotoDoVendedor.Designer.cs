@@ -3,6 +3,7 @@ using System;
 using DealerShipApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerShipApi.Migrations
 {
     [DbContext(typeof(DealerShipAppContext))]
-    partial class DealerShipAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240314133026_ColocandoCampoFotoDoVendedor")]
+    partial class ColocandoCampoFotoDoVendedor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +58,7 @@ namespace DealerShipApi.Migrations
                     b.Property<int>("QuantidadeDisponivel")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("VendedorId")
+                    b.Property<Guid?>("VendedorId")
                         .HasColumnType("char(36)");
 
                     b.HasKey("CarroId");
@@ -99,6 +102,9 @@ namespace DealerShipApi.Migrations
                     b.Property<string>("FotoVendedor")
                         .HasColumnType("longtext");
 
+                    b.Property<int>("IdadeVendedor")
+                        .HasColumnType("int");
+
                     b.Property<string>("NomeVendedor")
                         .HasColumnType("longtext");
 
@@ -118,15 +124,11 @@ namespace DealerShipApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DealerShipApi.Models.Vendedor", "Vendedor")
+                    b.HasOne("DealerShipApi.Models.Vendedor", null)
                         .WithMany("Carros")
-                        .HasForeignKey("VendedorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VendedorId");
 
                     b.Navigation("Categoria");
-
-                    b.Navigation("Vendedor");
                 });
 
             modelBuilder.Entity("DealerShipApi.Models.CategoriaCarro", b =>

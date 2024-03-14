@@ -103,6 +103,26 @@
     ]
   },
   {
+    "ContainingType": "DealerShipApi.Controllers.CarrosController",
+    "Method": "GetCarroVendedor",
+    "RelativePath": "Carros/carrinhos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DealerShipApi.Models.Carro, DealerShipApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "DealerShipApi.Controllers.CategoriasController",
     "Method": "GetCategoriasAsync",
     "RelativePath": "Categorias",
@@ -216,6 +236,129 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[DealerShipApi.Models.CategoriaCarro, DealerShipApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.VendedoresController",
+    "Method": "GetVendedoresAsync",
+    "RelativePath": "Vendedores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DealerShipApi.Models.Vendedor, DealerShipApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.VendedoresController",
+    "Method": "PostVendedorAsync",
+    "RelativePath": "Vendedores",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendedor",
+        "Type": "DealerShipApi.Models.Vendedor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Vendedor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.VendedoresController",
+    "Method": "PutVendedor",
+    "RelativePath": "Vendedores/{vendedorId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendedor",
+        "Type": "DealerShipApi.Models.Vendedor",
+        "IsRequired": true
+      },
+      {
+        "Name": "vendedorId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Vendedor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.VendedoresController",
+    "Method": "DeleteVendedorAsync",
+    "RelativePath": "Vendedores/{vendedorId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendedorId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Vendedor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.VendedoresController",
+    "Method": "GetVendedoresCarros",
+    "RelativePath": "Vendedores/VendedoresCarros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DealerShipApi.Models.Vendedor, DealerShipApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

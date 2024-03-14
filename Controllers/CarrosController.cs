@@ -24,6 +24,7 @@ public class CarrosController : ControllerBase
         {
             var carros = await _context
                 .Carros
+                .AsNoTracking() 
                 .ToListAsync();
 
             return Ok(carros);
@@ -33,6 +34,19 @@ public class CarrosController : ControllerBase
 
             return BadRequest(ex.Message);
         }
+    }
+
+    [HttpGet("CarrosCategoriasVendedores")]
+    public async Task<ActionResult<IEnumerable<Carro>>> GetCarroVendedor()
+    {
+        var carros = await _context
+            .Carros
+            .Include(c => c.Categoria)
+            .Include(p => p.Vendedor)
+            .AsNoTracking()
+            .ToListAsync();
+
+        return Ok(carros);
     }
 
     [HttpPost]

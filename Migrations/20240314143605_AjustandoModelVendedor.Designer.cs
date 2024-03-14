@@ -3,6 +3,7 @@ using System;
 using DealerShipApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerShipApi.Migrations
 {
     [DbContext(typeof(DealerShipAppContext))]
-    partial class DealerShipAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240314143605_AjustandoModelVendedor")]
+    partial class AjustandoModelVendedor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
