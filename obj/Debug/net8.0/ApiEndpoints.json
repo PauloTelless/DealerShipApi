@@ -1,5 +1,108 @@
 [
   {
+    "ContainingType": "DealerShipApi.Controllers.CarrosController",
+    "Method": "GetCarrosAsync",
+    "RelativePath": "Carros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DealerShipApi.Models.Carro, DealerShipApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.CarrosController",
+    "Method": "PostCarroAsync",
+    "RelativePath": "Carros",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carro",
+        "Type": "DealerShipApi.Models.Carro",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Carro",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.CarrosController",
+    "Method": "PutCarroAsync",
+    "RelativePath": "Carros/{carroId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carro",
+        "Type": "DealerShipApi.Models.Carro",
+        "IsRequired": true
+      },
+      {
+        "Name": "carroId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Carro",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.CarrosController",
+    "Method": "DeleteCarroAsync",
+    "RelativePath": "Carros/{carroId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carroId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Carro",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "DealerShipApi.Controllers.CategoriasController",
     "Method": "GetCategoriasAsync",
     "RelativePath": "Categorias",
@@ -93,6 +196,26 @@
     "ReturnTypes": [
       {
         "Type": "DealerShipApi.Models.CategoriaCarro",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.CategoriasController",
+    "Method": "GetCategoriasCarrosAsync",
+    "RelativePath": "Categorias/categoriasCarros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DealerShipApi.Models.CategoriaCarro, DealerShipApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

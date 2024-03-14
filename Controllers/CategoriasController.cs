@@ -37,6 +37,25 @@ public class CategoriasController : ControllerBase
 
     }
 
+    [HttpGet("categoriasCarros")]
+    public async Task<ActionResult<IEnumerable<CategoriaCarro>>> GetCategoriasCarrosAsync()
+    {
+        try
+        {
+            var categoriasCarros = await _context.Categorias
+                .Include(carros => carros.Carros)
+                .AsNoTracking()
+                .ToListAsync();
+
+            return categoriasCarros;
+        }
+        catch (Exception)
+        {
+
+            return BadRequest();
+        }
+    } 
+
     [HttpPost]
     public async Task<ActionResult<CategoriaCarro>> PostCategoriaAsync(CategoriaCarro categoria)
     {
