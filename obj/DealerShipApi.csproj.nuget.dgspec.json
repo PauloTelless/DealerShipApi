@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Respositório C#\\DealerShipApi\\DealerShipApi\\DealerShipApi.csproj": {}
+    "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj": {}
   },
   "projects": {
-    "C:\\Respositório C#\\DealerShipApi\\DealerShipApi\\DealerShipApi.csproj": {
+    "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Respositório C#\\DealerShipApi\\DealerShipApi\\DealerShipApi.csproj",
+        "projectUniqueName": "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj",
         "projectName": "DealerShipApi",
-        "projectPath": "C:\\Respositório C#\\DealerShipApi\\DealerShipApi\\DealerShipApi.csproj",
+        "projectPath": "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj",
         "packagesPath": "C:\\Users\\Paulo\\.nuget\\packages\\",
-        "outputPath": "C:\\Respositório C#\\DealerShipApi\\DealerShipApi\\obj\\",
+        "outputPath": "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Paulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.0-beta.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
