@@ -57,47 +57,54 @@ public class CategoriasController : ControllerBase
     }
 
     [HttpPut("{categoriaId}")]
-    public async Task<CategoriaCarro> PutCategoriaAsync(CategoriaCarro categoria, Guid categoriaId)
+    public async Task<ActionResult<CategoriaCarro>> PutCategoriaAsync(CategoriaCarro categoria, Guid categoriaId)
     {
         try
         {
-            var categoriaFiltrada = await _context
-            .Categorias
-            .FirstOrDefaultAsync(categoriaIdFiltrada => categoriaIdFiltrada.CategoriaId == categoria.CategoriaId);
+            if (categoria.CategoriaId.ToString() != categoriaId.ToString())
+            {
+                return NotFound();
+            }
 
-            _context.Categorias.Entry(categoriaFiltrada).State = EntityState.Modified;  
+            _context.Categorias.Entry(categoria).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
 
-            return categoriaFiltrada;
-        }
-        catch (Exception)
-        {
+            return Ok(categoria);
 
-            throw;
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+            
         }
         
     }
 
-    [HttpDelete("{categoriaId}")]
-    public async Task<CategoriaCarro> DeleteCategoriaAsync(Guid categoriaId)
+    [HttpDelete("{categoriaId}")]    
+    public async Task<ActionResult<CategoriaCarro>> DeleteCategoriaCarroAsync(Guid categoriaId)
     {
         try
         {
-            var categoriaFiltrada = await
-            _context.Categorias
-            .FirstOrDefaultAsync(categoriaIdFiltrada => categoriaIdFiltrada.CategoriaId == categoriaId);
+            var categoriaCarro = await _context.Categorias
+            .Include(carros => carros.Carros)
+            .FirstOrDefaultAsync(categoria => categoria.CategoriaId == categoriaId);
 
-            _context.Categorias.Remove(categoriaFiltrada);
+            if (categoriaCarro != null)
+            {
+                _context.Remove(categoriaCarro);
 
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-            return categoriaFiltrada;
+            }
+
+                return Ok(categoriaCarro);
+            
         }
-        catch (Exception)
+        catch (Exception ex)
         {
 
-            throw;
+            return BadRequest(ex.Message);
         }
         
     }

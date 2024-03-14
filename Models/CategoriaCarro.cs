@@ -14,5 +14,6 @@ public class CategoriaCarro
     public Guid CategoriaId { get; set; }
     public string? NomeCategoria { get; set; }
 
+
     public Collection<Carro> Carros { get; set; }  
 }

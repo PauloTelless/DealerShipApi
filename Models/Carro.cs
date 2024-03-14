@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DealerShipApi.Models;
 
@@ -16,6 +17,8 @@ public class Carro
     public int QuantidadeDisponivel { get; set; }   
     public DateTime AnoLancamento { get; set; }
 
-
+  
     public Guid CategoriaId { get; set; }   
+    public CategoriaCarro? Categoria { get; set; }
+
 }

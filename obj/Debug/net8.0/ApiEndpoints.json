@@ -18,5 +18,88 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.CategoriasController",
+    "Method": "PostCategoriaAsync",
+    "RelativePath": "Categorias",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoria",
+        "Type": "DealerShipApi.Models.CategoriaCarro",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.CategoriaCarro",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.CategoriasController",
+    "Method": "PutCategoriaAsync",
+    "RelativePath": "Categorias/{categoriaId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoria",
+        "Type": "DealerShipApi.Models.CategoriaCarro",
+        "IsRequired": true
+      },
+      {
+        "Name": "categoriaId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.CategoriaCarro",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.CategoriasController",
+    "Method": "DeleteCategoriaCarroAsync",
+    "RelativePath": "Categorias/{categoriaId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoriaId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.CategoriaCarro",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]
