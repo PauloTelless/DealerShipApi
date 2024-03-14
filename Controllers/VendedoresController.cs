@@ -35,26 +35,6 @@ public class VendedoresController : ControllerBase
         }
     }
 
-    [HttpGet("VendedoresCarros")]   
-    public async Task<ActionResult<IEnumerable<Vendedor>>> GetVendedoresCarros()
-    {
-        try
-        {
-            var vendedoresCarros = await _context.Vendedores
-                .Include(carros => carros.Carros)
-                .AsNoTracking()
-                .ToListAsync();
-
-            return Ok(vendedoresCarros);
-        }
-        catch (Exception ex)
-        {
-
-            return BadRequest(ex.Message);
-        }
-    }
-
-
     [HttpPost]  
     public async Task<ActionResult<Vendedor>> PostVendedorAsync(Vendedor vendedor)
     {
@@ -99,9 +79,7 @@ public class VendedoresController : ControllerBase
     [HttpDelete("{vendedorId}")]
     public async Task<ActionResult<Vendedor>> DeleteVendedorAsync(Guid vendedorId)
     {
-        var vendedorFiltrado = await _context
-            .Vendedores
-            .FirstOrDefaultAsync(vendedor => vendedor.VendedorId.ToString() == vendedorId.ToString());
+        var vendedorFiltrado = await _context.Vendedores.FindAsync(vendedorId);
 
         if (vendedorFiltrado == null)
         {
@@ -109,7 +87,6 @@ public class VendedoresController : ControllerBase
         }
 
         _context.Vendedores.Remove(vendedorFiltrado);
-
         await _context.SaveChangesAsync();
 
         return vendedorFiltrado;

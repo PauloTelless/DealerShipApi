@@ -39,7 +39,8 @@ namespace DealerShipApi.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     EnderecoVendedor = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    IdadeVendedor = table.Column<int>(type: "int", nullable: false),
+                    FotoVendedor = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     DataNascimentoVendedor = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     SalarioVendedor = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
                 },
@@ -69,29 +70,30 @@ namespace DealerShipApi.Migrations
                     QuantidadeDisponivel = table.Column<int>(type: "int", nullable: false),
                     AnoLancamento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CategoriaId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    CategoriaCarroCategoriaId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
-                    VendedorId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
+                    VendedorId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Carros", x => x.CarroId);
                     table.ForeignKey(
-                        name: "FK_Carros_Categorias_CategoriaCarroCategoriaId",
-                        column: x => x.CategoriaCarroCategoriaId,
+                        name: "FK_Carros_Categorias_CategoriaId",
+                        column: x => x.CategoriaId,
                         principalTable: "Categorias",
-                        principalColumn: "CategoriaId");
+                        principalColumn: "CategoriaId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Carros_Vendedores_VendedorId",
                         column: x => x.VendedorId,
                         principalTable: "Vendedores",
-                        principalColumn: "VendedorId");
+                        principalColumn: "VendedorId",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Carros_CategoriaCarroCategoriaId",
+                name: "IX_Carros_CategoriaId",
                 table: "Carros",
-                column: "CategoriaCarroCategoriaId");
+                column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Carros_VendedorId",

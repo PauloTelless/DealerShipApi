@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerShipApi.Migrations
 {
     [DbContext(typeof(DealerShipAppContext))]
-    [Migration("20240314133911_ColocandoCampoDeVendedorEmCarro")]
-    partial class ColocandoCampoDeVendedorEmCarro
+    [Migration("20240314150142_MigracaoInicial")]
+    partial class MigracaoInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,9 +101,6 @@ namespace DealerShipApi.Migrations
 
                     b.Property<string>("FotoVendedor")
                         .HasColumnType("longtext");
-
-                    b.Property<int>("IdadeVendedor")
-                        .HasColumnType("int");
 
                     b.Property<string>("NomeVendedor")
                         .HasColumnType("longtext");

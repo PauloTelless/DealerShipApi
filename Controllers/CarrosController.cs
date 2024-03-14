@@ -36,19 +36,6 @@ public class CarrosController : ControllerBase
         }
     }
 
-    [HttpGet("CarrosCategoriasVendedores")]
-    public async Task<ActionResult<IEnumerable<Carro>>> GetCarroVendedor()
-    {
-        var carros = await _context
-            .Carros
-            .Include(c => c.Categoria)
-            .Include(p => p.Vendedor)
-            .AsNoTracking()
-            .ToListAsync();
-
-        return Ok(carros);
-    }
-
     [HttpPost]
     public async Task<ActionResult<Carro>> PostCarroAsync(Carro carro)
     {
