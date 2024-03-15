@@ -9,13 +9,14 @@ public class Carro
     public Guid CarroId { get; set; }
     public string? ModeloCarro { get; set; }
     public string? MarcaCarro { get; set; }
+    public string? CorCarro { get; set; }       
     public string? DescricaoCarro { get; set; }
     public string? ImagemCarro { get; set; }
-    public decimal PrecoCarro { get; set; }
+    public string? PrecoCarro { get; set; }
     public string? PlacaCarro { get; set; }
-    public int AnoCarro { get; set; }
-    public int QuantidadeDisponivel { get; set; }   
-    public DateTime AnoLancamento { get; set; }
+    public string? AnoCarro { get; set; }
+    public string? QuilometragemCarro { get; set; } 
+    public string AnoLancamento { get; set; } = DateTime.UtcNow.ToString("dd/mm/yyyy");
 
     [Required]
     public Guid CategoriaId { get; set; }

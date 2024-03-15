@@ -12,7 +12,9 @@ public class Vendedor
     public string? CpfVendedor { get; set; }
     public string? EnderecoVendedor { get; set; }
     public string? FotoVendedor { get; set; }  
-    public DateTime DataNascimentoVendedor { get; set; }    
-    public decimal SalarioVendedor { get; set; }
+    public string? ContatoVendedor { get; set; }
+    public string? EstadoVendedor { get; set; }
+    public string? CidadeVendedor { get; set; }     
+    public DateTime DataNascimentoVendedor { get; set; }
 
 }
