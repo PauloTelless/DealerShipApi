@@ -10,7 +10,9 @@ public class Carro
     public string? ModeloCarro { get; set; }
     public string? MarcaCarro { get; set; }
     public string? CorCarro { get; set; }       
-    public string? DescricaoCarro { get; set; }
+    public string? MotorCarro { get; set; }
+    public string? ConsumoCarro { get; set; }
+    public string? EstadoCarro { get; set; }        
     public string? ImagemCarro { get; set; }
     public string? PrecoCarro { get; set; }
     public string? PlacaCarro { get; set; }

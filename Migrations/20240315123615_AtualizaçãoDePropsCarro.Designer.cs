@@ -3,6 +3,7 @@ using System;
 using DealerShipApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerShipApi.Migrations
 {
     [DbContext(typeof(DealerShipAppContext))]
-    partial class DealerShipAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240315123615_AtualizaçãoDePropsCarro")]
+    partial class AtualizaçãoDePropsCarro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,16 +38,10 @@ namespace DealerShipApi.Migrations
                     b.Property<Guid>("CategoriaId")
                         .HasColumnType("char(36)");
 
-                    b.Property<string>("ConsumoCarro")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("CorCarro")
                         .HasColumnType("longtext");
 
                     b.Property<string>("DescricaoCarro")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("EstadoCarro")
                         .HasColumnType("longtext");
 
                     b.Property<string>("ImagemCarro")
@@ -54,9 +51,6 @@ namespace DealerShipApi.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("ModeloCarro")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("MotorCarro")
                         .HasColumnType("longtext");
 
                     b.Property<string>("PlacaCarro")
@@ -111,9 +105,6 @@ namespace DealerShipApi.Migrations
 
                     b.Property<DateTime>("DataNascimentoVendedor")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("EmailVendedor")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("EnderecoVendedor")
                         .HasColumnType("longtext");
