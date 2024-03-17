@@ -3,6 +3,7 @@ using System;
 using DealerShipApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerShipApi.Migrations
 {
     [DbContext(typeof(DealerShipAppContext))]
-    partial class DealerShipAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240316025931_AtualizandoPropCarro")]
+    partial class AtualizandoPropCarro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,9 +65,6 @@ namespace DealerShipApi.Migrations
                     b.Property<string>("PrecoCarro")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("QuantidadeDisponivel")
-                        .HasColumnType("int");
-
                     b.Property<string>("QuilometragemCarro")
                         .HasColumnType("longtext");
 
@@ -109,9 +109,6 @@ namespace DealerShipApi.Migrations
                     b.Property<string>("CpfVendedor")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("DataAdmissao")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<DateTime>("DataNascimentoVendedor")
                         .HasColumnType("datetime(6)");
 
@@ -128,9 +125,6 @@ namespace DealerShipApi.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("NomeVendedor")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("SalarioVendedor")
                         .HasColumnType("longtext");
 
                     b.HasKey("VendedorId");

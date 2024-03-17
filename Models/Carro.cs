@@ -17,8 +17,10 @@ public class Carro
     public string? PrecoCarro { get; set; }
     public string? PlacaCarro { get; set; }
     public string? AnoCarro { get; set; }
-    public string? QuilometragemCarro { get; set; } 
+    public string? QuilometragemCarro { get; set; }
+    public int QuantidadeDisponivel { get; set; }      
     public string AnoLancamento { get; set; } = DateTime.UtcNow.ToString("dd/mm/yyyy");
+
 
     [Required]
     public Guid CategoriaId { get; set; }
