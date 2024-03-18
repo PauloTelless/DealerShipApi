@@ -3,6 +3,7 @@ using System;
 using DealerShipApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerShipApi.Migrations
 {
     [DbContext(typeof(DealerShipAppContext))]
-    partial class DealerShipAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240318115442_MigracaoBancoLocalNotebookEmpresa")]
+    partial class MigracaoBancoLocalNotebookEmpresa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,23 +95,6 @@ namespace DealerShipApi.Migrations
                     b.HasKey("CategoriaId");
 
                     b.ToTable("Categorias");
-                });
-
-            modelBuilder.Entity("DealerShipApi.Models.Marca", b =>
-                {
-                    b.Property<Guid>("MarcaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("ImagemMarca")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("NomeMarca")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("MarcaId");
-
-                    b.ToTable("Marcas");
                 });
 
             modelBuilder.Entity("DealerShipApi.Models.Vendedor", b =>

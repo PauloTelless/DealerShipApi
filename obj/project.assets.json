@@ -2684,19 +2684,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Paulo\\.nuget\\packages\\": {}
+    "C:\\Users\\Psouzat\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj",
+      "projectUniqueName": "C:\\RepositorioC#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj",
       "projectName": "DealerShipApi",
-      "projectPath": "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj",
-      "packagesPath": "C:\\Users\\Paulo\\.nuget\\packages\\",
-      "outputPath": "C:\\Respositório C#\\ApiDealerShip\\DealerShipApi\\obj\\",
+      "projectPath": "C:\\RepositorioC#\\ApiDealerShip\\DealerShipApi\\DealerShipApi.csproj",
+      "packagesPath": "C:\\Users\\Psouzat\\.nuget\\packages\\",
+      "outputPath": "C:\\RepositorioC#\\ApiDealerShip\\DealerShipApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Paulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Psouzat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2716,11 +2716,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2765,7 +2760,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

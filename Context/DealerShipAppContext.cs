@@ -9,6 +9,7 @@ public class DealerShipAppContext : DbContext
 
     public DbSet<Carro> Carros { get; set; }
     public DbSet<CategoriaCarro> Categorias { get; set; }
-    public DbSet<Vendedor> Vendedores { get; set; }         
+    public DbSet<Vendedor> Vendedores { get; set; }
+    public DbSet<Marca> Marcas { get; set; }    
 
 }
