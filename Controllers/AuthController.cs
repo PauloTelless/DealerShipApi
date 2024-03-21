@@ -12,7 +12,7 @@ using DealerShipApi.Context;
 
 namespace DealerShipApi.Controllers;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 public class AuthController : ControllerBase
 {
@@ -182,9 +182,25 @@ public class AuthController : ControllerBase
                    new Response { Status = "Error", Message = "User creation failed." });
         }
 
-        return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+        // Get the newly created user with the ID
+        var newUserFromDb = await _userManager.FindByNameAsync(model.UserName!);
 
+        // Assigning the generated ID to the User model
+        Usuario newUser = new Usuario
+        {
+            UsuarioId = newUserFromDb.Id,
+            UsuarioNome = newUserFromDb.UserName
+        };
+
+        // Save the User object to the Usuarios table in your database
+        _context.Usuarios.Add(newUser);
+
+        await _context.SaveChangesAsync();
+
+        return Ok(new Response { Status = "Success", Message = "User created successfully!" });
     }
+
+
 
     [HttpPost]
     [Route("refresh-token")]

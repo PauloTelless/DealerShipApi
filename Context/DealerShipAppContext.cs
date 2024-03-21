@@ -12,6 +12,7 @@ public class DealerShipAppContext : IdentityDbContext<AplicationUser>
     public DbSet<CategoriaCarro> Categorias { get; set; }
     public DbSet<Vendedor> Vendedores { get; set; }
     public DbSet<Marca> Marcas { get; set; }
+    public DbSet<Usuario>? Usuarios { get; set; }  
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

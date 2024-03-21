@@ -3,6 +3,7 @@ using System;
 using DealerShipApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DealerShipApi.Migrations
 {
     [DbContext(typeof(DealerShipAppContext))]
-    partial class DealerShipAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240320135424_TestandoCarrosFavoritosAtualizando")]
+    partial class TestandoCarrosFavoritosAtualizando
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,7 +141,7 @@ namespace DealerShipApi.Migrations
                     b.Property<string>("QuilometragemCarro")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("UsuarioId")
+                    b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
                     b.Property<Guid>("VendedorId")
@@ -148,7 +151,7 @@ namespace DealerShipApi.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UserId");
 
                     b.HasIndex("VendedorId");
 
@@ -186,15 +189,15 @@ namespace DealerShipApi.Migrations
                     b.ToTable("Marcas");
                 });
 
-            modelBuilder.Entity("DealerShipApi.Models.Usuario", b =>
+            modelBuilder.Entity("DealerShipApi.Models.User", b =>
                 {
-                    b.Property<string>("UsuarioId")
+                    b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("UsuarioNome")
+                    b.Property<string>("Nome")
                         .HasColumnType("longtext");
 
-                    b.HasKey("UsuarioId");
+                    b.HasKey("UserId");
 
                     b.ToTable("Usuarios");
                 });
@@ -379,9 +382,9 @@ namespace DealerShipApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DealerShipApi.Models.Usuario", null)
+                    b.HasOne("DealerShipApi.Models.User", null)
                         .WithMany("CarrosFavoritados")
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UserId");
 
                     b.HasOne("DealerShipApi.Models.Vendedor", "Vendedor")
                         .WithMany()
@@ -450,7 +453,7 @@ namespace DealerShipApi.Migrations
                     b.Navigation("Carros");
                 });
 
-            modelBuilder.Entity("DealerShipApi.Models.Usuario", b =>
+            modelBuilder.Entity("DealerShipApi.Models.User", b =>
                 {
                     b.Navigation("CarrosFavoritados");
                 });
