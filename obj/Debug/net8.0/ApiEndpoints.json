@@ -441,6 +441,63 @@
   },
   {
     "ContainingType": "DealerShipApi.Controllers.UsersController",
+    "Method": "GetUser",
+    "RelativePath": "Users/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Usuario",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.UsersController",
+    "Method": "PutUserConfiguration",
+    "RelativePath": "Users/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuario",
+        "Type": "DealerShipApi.Models.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DealerShipApi.Models.Usuario",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DealerShipApi.Controllers.UsersController",
     "Method": "PutUser",
     "RelativePath": "Users/{userId}/{carroId}",
     "HttpMethod": "PUT",

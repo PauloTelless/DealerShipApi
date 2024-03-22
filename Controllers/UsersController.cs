@@ -19,11 +19,20 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
+
     public ActionResult<IEnumerable<Usuario>> Users()
     {
         var users = _context.Usuarios.Include(x => x.CarrosFavoritados).ToList();
 
         return Ok(users);
+    }
+
+    [HttpGet("{userId}")]
+    public ActionResult<Usuario> GetUser(string userId)
+    {
+        var user = _context.Usuarios.FirstOrDefault(x => x.UsuarioId == userId);
+
+        return user;
     }
 
     [HttpPut("{userId}/{carroId}")]
@@ -50,6 +59,21 @@ public class UsersController : ControllerBase
         _context.SaveChanges(); 
 
         return Ok(userFiltrado); 
+    }
+
+    [HttpPut("{userId}")]
+    public ActionResult<Usuario> PutUserConfiguration(string userId, Usuario usuario)
+    {
+        if (usuario.UsuarioId != userId)
+        {
+            return NotFound();
+        }
+        
+        _context.Usuarios.Entry(usuario).State = EntityState.Modified;
+
+        _context.SaveChanges();
+
+        return usuario;
     }
 
 }
