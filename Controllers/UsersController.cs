@@ -61,6 +61,32 @@ public class UsersController : ControllerBase
         return Ok(userFiltrado); 
     }
 
+    [HttpPut("Favorite/Car/Delete/{userId}/{carroId}")]
+    public ActionResult<Usuario> DeleteCarFavorite(string userId, Guid carroId) 
+    {
+        Usuario usuarioFiltrado = new Usuario();
+        Carro carroFiltrado = new Carro();
+
+        if (userId is not null)
+        {
+            usuarioFiltrado = _context.Usuarios.FirstOrDefault(x => x.UsuarioId == userId);
+        }
+
+        if (carroId.ToString() is not null)
+        {
+            carroFiltrado = _context.Carros.FirstOrDefault(y => y.CarroId == carroId);
+
+            usuarioFiltrado.CarrosFavoritados.Remove(carroFiltrado);
+        }
+
+        _context.Usuarios.Entry(usuarioFiltrado).State = EntityState.Modified;
+
+        _context.SaveChanges();
+
+        return usuarioFiltrado;
+
+    }
+
     [HttpPut("{userId}")]
     public ActionResult<Usuario> PutUserConfiguration(string userId, Usuario usuario)
     {
