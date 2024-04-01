@@ -223,3 +223,18 @@ C:\Respositório C#\ApiDealerShip\DealerShipApi\obj\Debug\net8.0\refint\DealerSh
 C:\Respositório C#\ApiDealerShip\DealerShipApi\obj\Debug\net8.0\DealerShipApi.pdb
 C:\Respositório C#\ApiDealerShip\DealerShipApi\obj\Debug\net8.0\DealerShipApi.genruntimeconfig.cache
 C:\Respositório C#\ApiDealerShip\DealerShipApi\obj\Debug\net8.0\ref\DealerShipApi.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\IdentityModel.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\RepositorioC#\ApiDealerShip\DealerShipApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

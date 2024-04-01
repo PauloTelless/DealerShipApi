@@ -47,7 +47,7 @@ public class CategoriasController : ControllerBase
                 .AsNoTracking()
                 .ToListAsync();
 
-            return categoriasCarros;
+            return Ok(categoriasCarros);
         }
         catch (Exception)
         {

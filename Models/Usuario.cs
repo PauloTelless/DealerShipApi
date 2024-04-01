@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 
 namespace DealerShipApi.Models;
 
-public class Usuario
-{
-    public Usuario()
+public class Usuario                    
+{               
+    public Usuario()            
     {
         CarrosFavoritados = new Collection<Carro>();
     }

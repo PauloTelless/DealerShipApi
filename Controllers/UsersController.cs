@@ -19,87 +19,154 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
-
-    public ActionResult<IEnumerable<Usuario>> Users()
+    public async Task<ActionResult<IEnumerable<Usuario>>> UsersAsync()
     {
-        var users = _context.Usuarios.Include(x => x.CarrosFavoritados).ToList();
+        try
+        {
+            var users = await _context.Usuarios
+                .Include(x => x.CarrosFavoritados)
+                .ToListAsync();
 
-        return Ok(users);
+            return Ok(users);
+
+        }
+        catch (Exception ex)
+        {
+
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpGet("{userId}")]
-    public ActionResult<Usuario> GetUser(string userId)
+    public async Task<ActionResult<Usuario>> GetUserAsync(string userId)
     {
-        var user = _context.Usuarios.FirstOrDefault(x => x.UsuarioId == userId);
+        try
+        {
+            var user = await _context.Usuarios
+                .FirstOrDefaultAsync(x => x.UsuarioId == userId);
 
-        return user;
+            return user;
+
+        }
+        catch (Exception ex)
+        {
+
+            return BadRequest(ex.Message);
+        }
+
     }
 
     [HttpPut("{userId}/{carroId}")]
-    public ActionResult<Usuario> PutUser(string userId, Guid carroId)
+    public async Task<ActionResult<Usuario>> PutUserAsync(string userId, Guid carroId)      
     {
         Usuario userFiltrado = new Usuario();
         Carro  carroFiltrado = new Carro();
 
-        if (userId is not null)
+        try
         {
-            userFiltrado = _context.Usuarios.FirstOrDefault(u => u.UsuarioId == userId);
+            userFiltrado = await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.UsuarioId == userId);
 
         }
-        
-
-        if (carroId.ToString() is not null)
+        catch (Exception ex)
         {
-            carroFiltrado = _context.Carros.FirstOrDefault(x => x.CarroId == carroId);
 
-            userFiltrado.CarrosFavoritados.Add(carroFiltrado);
+            return NotFound(ex.Message);  
+        }
+
+        try
+        {
+            carroFiltrado = await _context.Carros
+                .FirstOrDefaultAsync(x => x.CarroId == carroId);
+
+            userFiltrado.CarrosFavoritados
+                .Add(carroFiltrado);
+
+            await _context.SaveChangesAsync(); 
+            
+            return Ok(userFiltrado); 
+        }
+        catch (Exception ex)
+        {
+
+            return NotFound(ex.Message);
+
         }
 
 
-        _context.SaveChanges(); 
-
-        return Ok(userFiltrado); 
     }
 
     [HttpPut("Favorite/Car/Delete/{userId}/{carroId}")]
-    public ActionResult<Usuario> DeleteCarFavorite(string userId, Guid carroId) 
+    public async Task<ActionResult<Usuario>> DeleteCarFavoriteAsync(string userId, Guid carroId)  
     {
         Usuario usuarioFiltrado = new Usuario();
         Carro carroFiltrado = new Carro();
 
-        if (userId is not null)
+        try
         {
-            usuarioFiltrado = _context.Usuarios.FirstOrDefault(x => x.UsuarioId == userId);
+            usuarioFiltrado = await _context.Usuarios
+                .FirstOrDefaultAsync(x => x.UsuarioId == userId);
+
+        } 
+        catch (Exception ex)
+        {
+
+            return NotFound(ex.Message);  
         }
 
-        if (carroId.ToString() is not null)
-        {
-            carroFiltrado = _context.Carros.FirstOrDefault(y => y.CarroId == carroId);
 
-            usuarioFiltrado.CarrosFavoritados.Remove(carroFiltrado);
+        try
+        {
+            carroFiltrado = _context
+                .Carros
+                .FirstOrDefault(y => y.CarroId == carroId);
+
+            usuarioFiltrado.CarrosFavoritados
+                .Remove(carroFiltrado);
+
+            _context.Usuarios
+                .Entry(usuarioFiltrado)
+                .State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+
+            return usuarioFiltrado;
+
+        }
+        catch (Exception ex)
+        {
+
+            return NotFound(ex.Message);
         }
 
-        _context.Usuarios.Entry(usuarioFiltrado).State = EntityState.Modified;
-
-        _context.SaveChanges();
-
-        return usuarioFiltrado;
 
     }
 
     [HttpPut("{userId}")]
-    public ActionResult<Usuario> PutUserConfiguration(string userId, Usuario usuario)
+    public async Task<ActionResult<Usuario>> PutUserConfigurationAsync(string userId, Usuario usuario)
     {
-        if (usuario.UsuarioId != userId)
+        try
         {
-            return NotFound();
+
+            if (usuario.UsuarioId != userId)
+            {
+                return NotFound();
+            }
+
+            _context.Usuarios
+                .Entry(usuario)
+                .State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+            
+            return usuario;     
         }
-        
-        _context.Usuarios.Entry(usuario).State = EntityState.Modified;
+        catch (Exception ex)
+        {
 
-        _context.SaveChanges();
+            return BadRequest(ex.Message);
+        }
 
-        return usuario;
     }
 
 }

@@ -33,6 +33,7 @@ public class VendedoresController : ControllerBase
 
             return BadRequest(ex.Message);      
         }
+
     }
 
     [HttpPost]  
@@ -51,6 +52,7 @@ public class VendedoresController : ControllerBase
 
             return BadRequest(ex.Message);
         }
+
     }
 
     [HttpPut("{vendedorId}")]
@@ -74,21 +76,33 @@ public class VendedoresController : ControllerBase
 
             return BadRequest(ex.Message);
         }
+
     }
 
     [HttpDelete("{vendedorId}")]
     public async Task<ActionResult<Vendedor>> DeleteVendedorAsync(Guid vendedorId)
     {
-        var vendedorFiltrado = await _context.Vendedores.FindAsync(vendedorId);
-
-        if (vendedorFiltrado == null)
+        try
         {
-            return NotFound();
+            var vendedorFiltrado = await _context.Vendedores.FindAsync(vendedorId);
+
+            if (vendedorFiltrado == null)
+            {
+                return NotFound();
+            }
+
+            _context.Vendedores.Remove(vendedorFiltrado);
+            await _context.SaveChangesAsync();
+
+            return vendedorFiltrado;
+
+        }
+        catch (Exception ex)
+        {
+
+            return BadRequest(ex.Message);
         }
 
-        _context.Vendedores.Remove(vendedorFiltrado);
-        await _context.SaveChangesAsync();
-
-        return vendedorFiltrado;
     }
+
 }

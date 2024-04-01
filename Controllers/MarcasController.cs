@@ -20,52 +20,77 @@ public class MarcasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Marca>>> GetMarcasAsync()
     {
-        var marcas = await _context
-            .Marcas
-            .AsNoTracking()
-            .ToListAsync();
+        try
+        { 
+            var marcas = await _context
+                .Marcas
+                .AsNoTracking()
+                .ToListAsync();
+            
+            return Ok(marcas);  
 
-        return Ok(marcas);
+        }
+        catch (Exception ex)
+        {
+
+            return BadRequest(ex.Message);
+        }
+
     }
 
     [HttpPost]
     public async Task<ActionResult<Marca>> PostMarcaAsync(Marca marca)
     {
-        _context.Marcas.Add(marca);
+        try
+        {
+            _context.Marcas.Add(marca);
 
-        await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-        return Ok(marca);
+            return Ok(marca);
+
+        }
+        catch (Exception ex)
+        {
+
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPut("{marcaId}")]
     public async Task<ActionResult<Marca>> PutMarcaAsync(Guid marcaId, Marca marca)
     {
-        if (marcaId != marca.MarcaId)
-        {
-            return BadRequest("MarcaId in the URL does not match the MarcaId in the request body.");
-        }
-
-        var existingMarca = await _context.Marcas.FindAsync(marcaId);
-
-        if (existingMarca == null)
-        {
-            return NotFound();
-        }
-
-        // Update the properties of the existingMarca entity with the values from marca
-        _context.Entry(existingMarca).CurrentValues.SetValues(marca);
-
         try
         {
+            var existingMarca = await _context
+                .Marcas
+                .FindAsync(marcaId);
+
+            if (existingMarca == null)
+            {
+                return NotFound();
+            }
+
+            if (marcaId != marca.MarcaId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(existingMarca)
+                .CurrentValues
+                .SetValues(marca);
+
             await _context.SaveChangesAsync();
+
+            return Ok(existingMarca);
+
         }
-        catch (DbUpdateConcurrencyException)
+        catch (Exception ex)
         {
-            return BadRequest();
+
+            return BadRequest(ex.Message);
         }
 
-        return Ok(existingMarca);
     }
 
 }

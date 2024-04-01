@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DealerShipApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81abe3eecf1074f1e7e82e2631ab83f3a686ab04")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24b67dd198a4933061c494ae49985c8dbf04f64e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DealerShipApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DealerShipApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
